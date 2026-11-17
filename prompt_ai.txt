@@ -1,15 +1,28 @@
-==================================================
-DAFTAR RIWAYAT PROMPT & BANTUAN AI - KOMPUTASI NUMERIK
-==================================================
+Sistem Persamaan Linear (SPL) 3 Variabel adalah sistem persamaan dengan tiga variabel yang tidak diketahui (x,y,dan z). Berikut adalah rangkuman metode utama yang sering digunakan untuk menyelesaikannya:
 
-1. Pembuatan Akun & Repositori GitHub
-   - Topik: Panduan membuat akun GitHub, Google Colab, dan LinkedIn, serta cara menyusun file akun.txt.
-   - Hasil: Tautan profil resmi berhasil disusun dan diunggah ke repository GitHub dengan nama file akun.txt.
+1. Metode Analitis (Eksak) : Metode ini mencari nilai solusi yang pasti (eksak) secara langsung melalui manipulasi aljabar atau matriks. Sangat cocok digunakan untuk sistem dengan jumlah variabel sedikit (seperti 3 variabel).
 
-2. Penyusunan Algoritma & Kode SPL 3 Variabel
-   - Topik: Cara membuat algoritma penyelesaian Sistem Persamaan Linear (SPL) 3 Variabel menggunakan Python dan pustaka NumPy di Google Colab.
-   - Hasil: Kode program terstruktur (mulai dari definisi matriks A dan b, fungsi eliminasi/solve, hingga verifikasi hasil) berhasil dijalankan dengan akurat dan diunduh dalam format SPL_3_Variabel.ipynb.
+Eliminasi Gauss & Gauss-Jordan
+Mengubah matriks gabungan (augmented matrix) menjadi bentuk segitiga atas (eselon baris) menggunakan Operasi Baris Elementer (OBE), lalu menghitung nilai variabel secara mundur (back-substitution).
 
-3. Dokumentasi & Pengelolaan Repositori GitHub
-   - Topik: Panduan membuat struktur README.md dan cara melakukan commit/upload file ke repository Komputasi-Numerik.
-   - Hasil: Seluruh file tugas terdokumentasi rapi di GitHub.
+Aturan Cramer (Determinan)
+Menghitung nilai variabel menggunakan perbandingan nilai determinan matriks.
+
+2. Metode Numerik Iteratif
+
+Metode ini menggunakan pendekatan tebakan awal dan melakukan perhitungan berulang (iterasi) hingga galat (error) mendekati nol. Biasanya dipakai untuk sistem persamaan berskala besar.
+
+Metode Jacobi
+Menghitung nilai variabel baru pada setiap iterasi secara serentak menggunakan seluruh nilai variabel dari iterasi sebelumnya.
+
+Metode Gauss-Seidel
+Pengembangan dari metode Jacobi di mana nilai variabel baru yang baru saja dihitung langsung dipakai untuk menghitung variabel berikutnya dalam iterasi yang sama, sehingga prosesnya lebih cepat mencapai hasil akhir (konvergen).
+
+3. Implementasi di Python (Komputasi Numerik)
+
+Dalam pemrograman Python menggunakan pustaka NumPy, penyelesaian SPL 3 variabel umumnya dilakukan dengan dua cara:
+
+Fungsi Bawaan (np.linalg.solve): Cara tercepat dan paling stabil secara numerik menggunakan fungsi aljabar linear bawaan NumPy.
+
+Algoritma Manual (Looping): Menulis logika nested loop (perulangan bersarang) untuk menerapkan langkah-langkah Eliminasi Gauss atau Gauss-Seidel dari awal.
+
